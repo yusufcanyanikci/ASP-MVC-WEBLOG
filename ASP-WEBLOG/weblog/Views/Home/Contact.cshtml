@@ -1,0 +1,54 @@
+@model weblog.Models.ViewModels.ContactVM
+
+@{
+    ViewData["Title"] = "Iletisim";
+}
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row my-5">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-12 my-4">
+
+
+            <form method="post">
+                @Html.AntiForgeryToken()
+                <div class="mb-3">
+                    <label class="form-label">E-Posta</label>
+                    <input asp-for="Eposta" type="email" name="eposta" class="form-control"
+                        aria-describedby="emailHelp">
+                    <span asp-validation-for="Eposta" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Konu</label>
+                    <input asp-for="Konu" type="text" name="konu" class="form-control">
+                    <span asp-validation-for="Konu" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mesaj</label>
+                    <textarea asp-for="Mesaj" name="mesaj" cols="60" class="form-control" rows="8"></textarea>
+                    <span asp-validation-for="Mesaj" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ip</label>
+                    <input asp-for="Ip" type="text" class="form-control">
+                    <span asp-validation-for="Ip" class="text-danger"></span>
+                </div>
+                    <input asp-for="TarihSaat" type="hidden" value="@DateTime.Now" class="form-control">
+                    <span asp-validation-for="TarihSaat" class="text-danger"></span>
+
+                <button type="submit" class="btn btn-primary">Gönder</button>
+            </form>
+
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->

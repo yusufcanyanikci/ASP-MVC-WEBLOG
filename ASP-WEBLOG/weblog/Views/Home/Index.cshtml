@@ -1,0 +1,33 @@
+﻿@model List<weblog.Models.ViewModels.YazilarVM>
+
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row mt-5">
+        <!-- Blog Entries Column -->
+        <div class="col-md-12 mt-5">
+
+            @foreach (var yazi in Model)
+            {
+                <div class="card mb-4">
+
+                    <div class="card-body">
+                        <h2 class="card-title">@yazi.Baslik</h2>
+                        <p class="card-text">Özet (@yazi.Ozet)</p>
+                        <a href="/YaziDetay/@yazi.Id" class="btn btn-primary">Devamını oku</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Eklenme Tarihi (@yazi.EklenmeTarihi)
+                        <a href="#">Yazar (@yazi.YazarAdSoyad)</a>
+                    </div>
+                </div>
+            }
+            <!-- Blog Post -->
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+
+    </div>
